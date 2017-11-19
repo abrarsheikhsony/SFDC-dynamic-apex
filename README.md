@@ -6,6 +6,6 @@ Here you will find information related to dynamic Apex DML, dynamic SOSL, dynami
 ```
 sObject sObjectRecord = new Account();
 String objectType = sObjectRecord.getSObjectType().getDescribe().getName();
-System.Debug('Object Type / API Name =:'+objectType);
-Object Type / API Name =: Account
+System.Debug('Object Type / API Name = '+objectType);
+//Returns: Object Type / API Name = Account
 ```
