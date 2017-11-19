@@ -1,8 +1,18 @@
 # Salesforce Dynamic Apex
 
-Here you will find information related to dynamic Apex DML, dynamic SOSL, dynamic SOQL, Describe calls, Schema calls etc.
+Here you will find information related to dynamic Apex DML, dynamic SOSL, dynamic SOQL, dynamic strings, Describe calls, Schema calls etc.
 
-(1) Get the SObject API Name
+(1) Dynamic Strings
+```
+String customLabel = 'Marc has got {0} marks out of {1}';
+List<String> lstCustomLabelIndexStrings = new List<String>{'800', '1000'};
+String result = String.format(customLabel, lstCustomLabelIndexStrings);
+System.Debug('Returns: '+result);
+
+//Returns: Marc has got 800 marks out of 1000
+```
+
+(2) Get the SObject API Name
 ```
 sObject sObjectRecord = new Account();
 String objectType = sObjectRecord.getSObjectType().getDescribe().getName();
@@ -10,20 +20,22 @@ System.Debug('Object Type / API Name = '+objectType);
 //Returns: Object Type / API Name = Account
 ```
 
-(2) Get the keyprefix or first 3 digits of SObject
+(3) Get the keyprefix or first 3 digits of SObject
 ```
 String keyPrefixAccount = Schema.SObjectType.Account.getKeyPrefix(); 
 System.Debug('keyPrefixAccount = '+keyPrefixAccount);
 // Returns: keyPrefixAccount = 001
 ```
-(3) Get the RecordType Info by Name or Id
+(4) Get the RecordType Info by Name or Id
 
+```
 Schema.DescribeSObjectResult describeSObjectResult = Account.SobjectType.getDescribe();
 Map<String,Schema.RecordTypeInfo> mapRecordTypeInfosByName = describeSObjectResult.getRecordTypeInfosByName();
 Map<Id,Schema.RecordTypeInfo> mapRecordTypeInfosById = describeSObjectResult.getRecordTypeInfosById();
 
 System.Debug('>>RecordTypeInfosByName<<'+ mapRecordTypeInfosByName );
 System.Debug('>>RecordTypeInfosById<<'+ mapRecordTypeInfosById );
+```
 
 //RecordTypeInfosByName
 ```
