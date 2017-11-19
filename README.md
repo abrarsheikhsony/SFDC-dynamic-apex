@@ -33,12 +33,13 @@ Schema.DescribeSObjectResult describeSObjectResult = Account.SobjectType.getDesc
 Map<String,Schema.RecordTypeInfo> mapRecordTypeInfosByName = describeSObjectResult.getRecordTypeInfosByName();
 Map<Id,Schema.RecordTypeInfo> mapRecordTypeInfosById = describeSObjectResult.getRecordTypeInfosById();
 
-System.Debug('>>RecordTypeInfosByName<<'+ mapRecordTypeInfosByName );
-System.Debug('>>RecordTypeInfosById<<'+ mapRecordTypeInfosById );
+System.Debug('Returns: RecordTypeInfosByName '+ mapRecordTypeInfosByName );
+System.Debug('Returns: RecordTypeInfosById '+ mapRecordTypeInfosById );
 ```
 
-//RecordTypeInfosByName
 ```
+//Returns: RecordTypeInfosByName
+
 {
 Master=Schema.RecordTypeInfo[getName=Master;getRecordTypeId=012000000000000AAA;isActive=true;isAvailable=true;isDefaultRecordTypeMapping=false;isMaster=true;],
 Record Type 1=Schema.RecordTypeInfo[getName=Record Type 1;getRecordTypeId=01290000000OUHfAAO;isActive=true;isAvailable=true;isDefaultRecordTypeMapping=true;isMaster=false;],
@@ -46,8 +47,9 @@ Record Type 2=Schema.RecordTypeInfo[getName=Record Type 2;getRecordTypeId=012900
 }
 ```
 
-//RecordTypeInfosById
 ```
+//Returns: RecordTypeInfosById
+
 {
 012000000000000AAA=Schema.RecordTypeInfo[getName=Master;getRecordTypeId=012000000000000AAA;isActive=true;isAvailable=true;isDefaultRecordTypeMapping=false;isMaster=true;],
 01290000000OUHfAAO=Schema.RecordTypeInfo[getName=Record Type 1;getRecordTypeId=01290000000OUHfAAO;isActive=true;isAvailable=true;isDefaultRecordTypeMapping=true;isMaster=false;],
